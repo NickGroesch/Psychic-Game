@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var compThinking = alphabet[Math.floor(Math.random() * alphabet.length)];
   console.log(
-    "real psychic's see into the crystal ball of the console:" + compThinking
+    "real psychics see into the crystal ball of the console:" + compThinking
   );
 
   // variables for display elements
@@ -55,9 +55,11 @@ document.addEventListener("DOMContentLoaded", function() {
     l.innerText = myLosses;
     g.innerText = triedLetters.join();
     x.innerText = guessesLeft;
+    compThinking = alphabet[Math.floor(Math.random() * alphabet.length)];
+    console.log(
+      "real psychics see into the crystal ball of the console:" + compThinking
+    );
   }
-  // // k= 1 triggers reset
-  // var k = 0;
 
   function reset() {
     guessesLeft = 9;
@@ -76,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function() {
   // gameplayevent
   document.onkeyup = function(event) {
     var myGuess = event.key;
-    console.log("game change ", myGuess);
 
     // input validator
     var myAscii = event.keyCode;
@@ -88,11 +89,12 @@ document.addEventListener("DOMContentLoaded", function() {
       f.innerText = "a psychic would know to use lower case letters";
     }
     myGuess = String.fromCharCode(myAscii);
-
+    // for duplicate guess
     if (triedLetters.indexOf(myGuess) >= 0) {
       f.innerText =
         "it's hard to convince me you are a psychic when you can't even see the past";
     }
+    // print the guess
     triedLetters.push(myGuess);
     g.innerText = triedLetters.join();
 
